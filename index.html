@@ -1,475 +1,703 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <!-- Basic -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
-  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Single Page Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Add after bootstrap CSS link -->
 
-  <title>MarketWeb</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
 
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+        h1, h2, p {
+            color: #ffffff !important;
+        }
 
-  <!-- fonts style -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap"
-    rel="stylesheet" />
+        .card {
+            background: #131313 !important;
+            color: #e0e0e0;
+            margin-bottom: 0;
+            /* Updated */
+        }
+        body {
+            text-align: center;
+            background-color: #1f2326;
+        }
 
-  <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
+        /* Add image styling for portfolio cards */
+        #portfolio .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-top: auto;
+            border-radius: 0 0 0.5rem 0.5rem;
+        }
+
+        #portfolio .card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        #portfolio .card h2,
+        #portfolio .card p {
+            padding: 0 1rem;
+        }
+        /* Added Social Icons Styles */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icons .footer-link i {
+            font-size: 1.2rem;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #131313;
+            padding: 1rem;
+            z-index: 1001;
+            display: flex;
+            justify-content: center;
+        }
+
+        footer .content {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-link:hover {
+            opacity: 0.8;
+        }
+
+        .footer-link i {
+            font-size: 1.5rem;
+        }
+
+        .footer-link span {
+            font-size: 0.9rem;
+        }
+
+        /* Adjust section padding to accommodate footer */
+        section {
+            padding: 2rem 2rem 80px 2rem !important;
+        }
+
+        /* Add carousel styles */
+        .carousel-container {
+            overflow: hidden;
+            width: 100%;
+            border-radius: 1rem;
+            margin: 2rem 0;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        #about .card {
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin-bottom: 0;
+            box-shadow: none;
+            border-radius: 0;
+        }
+
+        #about .card img {
+            border-radius: 0.5rem 0.5rem 0 0;
+        }
+
+        /* Add new image styling */
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Added Logo Styles */
+        .logo {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Added Hamburger Styles */
+        .hamburger {
+            display: none;
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #131313;
+            padding: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            height: 60px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: nowrap;
+            padding: 0 0.5rem;
+            margin: 0;
+            transition: max-height 0.3s ease-in-out;
+        }
+
+        /* Mobile Menu Styles */
+@media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            nav ul {
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: #131313;
+                flex-direction: column;
+                max-height: 0;
+                overflow: hidden;
+                padding: 0;
+                gap: 0;
+            }
+
+            nav ul.active {
+                max-height: 500px;
+            }
+
+            nav ul li {
+                width: 100%;
+                text-align: center;
+                padding: 0.5rem;
+            }
+
+            nav a {
+                width: 100%;
+                padding: 0.5rem;
+            }
+        }
+
+
+        .logo {
+            height: 40px;
+            padding: 5px 0;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+        }
+
+@media (max-width: 768px) {
+            .logo {
+                left: 0.5rem;
+            }
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.3rem 0.5rem;
+            /* Reduced padding */
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+            /* Smaller font size */
+            white-space: nowrap;
+            /* Prevent text wrapping */
+        }
+        nav a:hover,
+        nav a.active {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        section {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 80px);
+            padding: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease-in-out;
+            overflow-y: auto;
+        }
+
+        section.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: #1f2937;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, #b8870b 0%, #b8870b 100%);
+            color: white;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        #home {
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+        }
+
+        #services {
+            background-color: #1f2326;
+        }
+
+        #portfolio {
+            background-color: #1f2326;
+        }
+
+        #about {
+            background-color: #1f2326;
+        }
+
+        #contact {
+            background-color: #1f2326;
+        }
+    </style>
 </head>
-
 <body>
-  <div class="hero_area">
-    <!-- header section strats -->
-    <div class="hero_bg_box">
-      <div class="img-box">
-        <img src="images/bgbg.jpg" alt="">
-      </div>
-    </div>
-
-    <header class="header_section">
-
-      <div class="header_bottom">
-        <div class="container-fluid">
-          <nav class="navbar navbar-expand-lg custom_nav-container">
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class=""></span>
-            </button>
-
-            <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
-              <ul class="navbar-nav  ">
-                <li class="nav-item active">
-                  <a class="nav-link" href="index.html"><b> Home</b> <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="about.html"><b> About</b></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="service.html"> <b>Services </b></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="portfolio.html"> <b>Portfolio </b></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="contact.html"><b>Contact us</b></a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-        </div>
-      </div>
-    </header>
-    <!-- end header section -->
-    <!-- slider section -->
-    <section class=" slider_section ">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3 text-center">
-            <div class="detail-box">
-
-            </div>
-          </div>
-          <div class="col-md-6 text-center">
-            <img src="images/favicon.png" alt="">
-            <div class="detail-box">
-              <h1><b>Creating the <span >future</span> of <span
-                    >Brands</span><br></b>
-              </h1>
-              <h5>
-                Elevate your brand's online presence and success with our expert digital marketing solutions.
-              </h5>
-              <br>
-
-            </div>
-          </div>
-          <div class="col-md-3 text-center">
-            <div class="detail-box">
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- end slider section -->
-  </div>
-
-
-  <!-- service section -->
-
-  <section class="service_section layout_padding">
-    <div class="container">
-
-      <div class="row">
-        <div class="col-md-3">
-
-        </div>
-        <div class="col-md-6">
-          <div class="heading_container heading_center">
-            <h4> We Envision With a Mission</h4>
-
-            <h1><b>
-                Establishing A Global Standard In Digital Marketing</b>
-            </h1>
-          </div>
-          <br>
-          <div class="row text-center text-white">
-            <div class="col-md-6">
-              <h4><span>Our Mission</span></h4>
-              <p>
-                To provide professional and highly creative result-oriented digital marketing services and other related advisory and consulting services that will assist businesses, individuals, and non-profit organizations in promoting their brands and reaching out to a wide range of potential customers all over the globe.
-              </p>
-            </div>
-            <div class="col-md-6">
-              <h4>Our Vision</h4>
-              <p>
-              To establish a standard and world-class digital marketing firm whose services and brand will not only be accepted in Malawi but also in other parts of the world.
-              </p>
-
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- end service section -->
-
-
-  <!-- client section -->
-  <section class="team_section layout_padding">
-    <div class="container">
-      <div class="heading_container heading_center">
-        <h2>
-          Our Portfolio
-        </h2>
-        <p>
-
-          Explore our latest work </p>
-      </div>
-      <div class="row">
-        <div class="col-md-4 col-sm-6 mx-auto ">
-          <div class="box">
-            <div class="img-box">
-              <img src="images/hori.jpg" alt="">
-            </div>
-            <div class="detail-box">
-              <h5>
-                Horizon Designs
-              </h5>
-              <h6 class="">
-                Brand Identity, Target Audience Identification
-
-              </h6>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 mx-auto ">
-          <div class="box">
-            <div class="img-box">
-              <img src="images/vita.jpg" alt="">
-            </div>
-            <div class="detail-box">
-              <h5>
-
-                Vitalite </h5>
-              <h6 class="">
-                USPs, Marketing Campaigns
-              </h6>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 mx-auto ">
-          <div class="box">
-            <div class="img-box">
-              <img src="images/plastic.jpg" alt="">
-            </div>
-            <div class="detail-box">
-              <h5>
-                OG Plastics
-              </h5>
-              <h6 class="">
-                Brand Concistency, Customer Recognition
-              </h6>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <div class="btn-box ">
-        <a href="portfolio.html">
-          View All
+    <nav>
+        <a href="#home" class="logo">
+            <img src="favicon.png" alt="Company Logo" style="height: 40px;">
         </a>
-      </div>
-    </div>
-  </section>
+        <button class="hamburger">☰</button>
+        <ul>
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <!-- Modified Home Section -->
+    <section id="home" class="active">
+        <div class="content">
+            <h1>Creating the future of brands</h1>
+            <p>
+                Elevate your brand's online presence and success with <b>MarketWeb</b>.Here's How we do it.
+            </p>
 
+            <!-- Updated Icon Section Columns -->
+            <div class="row g-3 mt-4 mb-4">
+                      
+                <div class="col-4 text-center">
+                    <!-- Changed from col-md-4 -->
 
-  <!-- end client section -->
+                    <i class="bi bi-ear" style="font-size: 2rem; color: #b8870b;"></i>
+                    <p class="mt-2 text-small">Listen</p>
 
-  <!-- contact section -->
-
-  <section class="contact_section layout_padding">
-    <div class="contact_bg_box">
-      <div class="img-box">
-        <img src="images/bgbg.jpg" alt="">
-      </div>
-    </div>
-    <div class="container">
-      <div class="heading_container heading_center">
-        <h2>
-          Get In touch
-        </h2>
-      </div>
-      <div class="">
-        <div class="row">
-          <div class="col-md-7 mx-auto">
-            <form action="#">
-              <div class="contact_form-container">
-                <div>
-                  <div>
-                    <input type="text" placeholder="Full Name" />
-                  </div>
-                  <div>
-                    <input type="email" placeholder="Email " />
-                  </div>
-                  <div>
-                    <input type="text" placeholder="Phone Number" />
-                  </div>
-                  <div class="">
-                    <input type="text" placeholder="Message" class="message_input" />
-                  </div>
-                  <div class="btn-box ">
-                    <button type="submit">
-                      Send
-                    </button>
-                  </div>
                 </div>
-              </div>
-            </form>
-          </div>
+                <div class="col-4 text-center">
+                    <!-- Changed from col-md-4 -->
+
+                    <i class="bi bi-lightbulb" style="font-size: 2rem; color: #b8870b;"></i>
+                    <p class="mt-2 text-small">Understand</p>
+
+                </div>
+                <div class="col-4 text-center">
+                    <!-- Changed from col-md-4 -->
+
+                    <i class="bi bi-hand-thumbs-up" style="font-size: 2rem; color: #b8870b;"></i>
+                    <p class="mt-2 text-small">Support</p>
+
+                </div>
+            </div>
+
+            <a href="#contact" class="btn">Get in Touch</a>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
+    <section id="services" class="">
+        <div class="content">
+            <h1>Our Services</h1>
+            <p>
+                Strategize. Launch. Dominate. From branding to campaigns, we turn goals into gold
+            </p>
+            <div class="row g-3">
+                <!-- First three cards in a row -->
 
-  <!-- end contact section -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <i class="text-warning bi bi-search" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                        <h2>SEO</h2>
+                        <p>
+                            Skyrocket your search rankings with strategies that put your brand at the top of Google's results.
+                        </p>
 
-  <!-- team section -->
+                    </div>
+                </div>
+                                <div class="col-md-4">
+                    <div class="card">
+                        <i class="text-warning bi bi-code-square" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                        <h2>Web Development</h2>
+                        <p>
+                            Crafting pixel-perfect websites that convert visitors into customers and fuel business growth.
+                        </p>
 
-  <section class="client_section layout_padding">
-    <div class="container ">
-      <div class="heading_container heading_center">
-        <h2>
-          Meet The Team
-        </h2>
-        <p>
-          The faces behind our success
-        </p>
-      </div>
-      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="box">
-              <div class="img-box">
-                <img src="images/Nosipho.jpeg" alt="">
-              </div>
-              <div class="detail-box">
-                <h4>
-                  Nosipho Kamwendo
-                </h4>
-                <p>
-                  Managing Director/Marketing Manger
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item ">
-            <div class="box">
-              <div class="img-box">
-                <img src="images/Gome.jpeg" alt="">
-              </div>
-              <div class="detail-box">
-                <h4>
-                  Gomezgan Skanda Kaunda
-                </h4>
-                <p>Software Developer
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item ">
-            <div class="box">
-              <div class="img-box">
-                <img src="images/Orator.jpeg" alt="">
-              </div>
-              <div class="detail-box">
-                <h4>
-                  Chisomo Selengu
-                </h4>
-                <p>Social Media Manager
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item ">
-            <div class="box">
-              <div class="img-box">
-                <img src="images/Beiah.jpeg" alt="">
-              </div>
-              <div class="detail-box">
-                <h4>
-                  Beiah George
-                </h4>
-                <p>
-                  Content Creator
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item ">
-            <div class="box">
-              <div class="img-box">
-                <img src="images/Dan.jpeg" alt="">
-              </div>
-              <div class="detail-box">
-                <h4>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <i class="text-warning bi bi-file-text" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                        <h2>Content Creation</h2>
+                        <p>
+                            Captivating content that tells your story, builds trust, and keeps audiences coming back for more.
+                        </p>
 
-                  Daniel Ntandika
-                </h4>
-                <p>Software Developer
-                </p>
-              </div>
+                    </div>
+                </div>
             </div>
-          </div>
+
+            <!-- Last two cards in a row -->
+            <div class="row g-3 mt-3">
+                <div class="col-md-6">
+                    <div class="card">
+                        <i class="text-warning bi bi-people" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                        <h2>Social Media Marketing</h2>
+                        <p>
+                            Turn followers into fans with campaigns that spark conversations and drive viral engagement.
+                        </p>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <i class="text-warning bi bi-calendar-event" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                        <h2>Event Planning</h2>
+                        <p>
+                            Unforgettable experiences that amplify your brand and create lasting connections.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="carousel_btn-box">
-          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <i class="fa fa-angle-left" aria-hidden="true"></i>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <i class="fa fa-angle-right" aria-hidden="true"></i>
-            <span class="sr-only">Next</span>
-          </a>
+    </section>
+    <!-- Modified Portfolio Section -->
+    <section id="portfolio">
+        <div class="content">
+            <h1>Portfolio</h1>
+            <p>
+                Proof in pixels: innovative campaigns where brands thrive. Browse, then believe
+            </p>
+
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="card">
+                        <h3>OG Plastics</h3>
+                        <p class="text-small">
+                            Brand Consistency & Customer Recognition
+                        </p>
+                        <img src="plastic.jpg" alt="OG Plastics" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <h3>Horizon Designs</h3>
+                        <p class="text-small">
+                            Brand Identity & Target Market Identification
+                        </p>
+                        <img src="hori.jpg" alt="Horizon Designs" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <h3>Vitalite</h3>
+                        <p class="text-small">
+                            Marketing Campaigns & Unique Selling Proposition
+                        </p>
+                        <img src="vita.jpg" alt="Vitalite" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+            <div class="row g-3 mt-3">
+                <div class="col-md-4">
+                    <div class="card">
+                        <h3>Mkulu Safety</h3>
+                        <p class="te">
+                            Logo Design & Branding Guidelines
+                        </p>
+                        <img src="mkulu.jpg" alt="Mkulu Safety" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <h3>Stop Shipping</h3>
+                        <p class="text-small">
+                            Brochure Designs & Business Cards
+                        </p>
+                        <img src="ship.jpg" alt="Stop Shipping" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <h3>Octate Solutions</h3>
+                        <p class="text-small">
+                            Brand Consistency
+                        </p>
+                        <img src="octa.png" alt="Octate Solutions" class="img-fluid">
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
+    <section id="about">
+        <div class="content">
+            <h1>About Us</h1>
+            <p>
+                With over 10 years of experience we’re driven by your success. Your story, our obsession
+            </p>
 
-  <!-- end team section -->
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <div class="card">
+                        <img src="nosipho.jpeg">
+                        <h2>Managing Director</h2>
+                        <p>
+                            Nosipho Kamwendo
+                        </p>
+                    </div>
+                    <div class="card">
+                        <img src="gome.jpeg">
+                        <h2>Software Developer</h2>
+                        <p>
+                            Gomezgani Kaunda
+                        </p>
+                    </div>
+                    <div class="card">
+                        <img src="Orator.jpeg">
+                        <h2>Social Media Manager</h2>
+                        <p>
+                            Chisomo Selengu
+                        </p>
+                    </div>
+                    <div class="card">
+                        <img src="beiah.jpeg">
+                        <h2>Content Creator</h2>
+                        <p>
+                            Beiah George
+                        </p>
+                    </div>
+                    <div class="card">
+                        <img src="dan.jpeg">
+                        <h2>Software Developer</h2>
+                        <p>
+                            Daniel Ntandika
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- info section -->
-  <section class="info_section ">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 text-center">
-          <div class="info_logo">
-            <a class="navbar-brand" href="index.html">
-              <img src="images/favicon.png" alt="">
+    <section id="contact">
+        <div class="content">
+            <h1>Contact Us</h1>
+            <p>
+                Ready to spark magic? Let's chat—your next big breakthrough starts here
+            </p>
+            <div class="card">
+                <form style="display: grid; gap: 1rem;">
+                    <input type="text" placeholder="Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <textarea rows="5" placeholder="Message" required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+                <!-- Added Social Icons -->
+                <div class="social-icons">
 
+                    <a href="#" class="footer-link">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                    <a href="#" class="footer-link">
+                        <i class="bi bi-twitter-x"></i>
+                    </a>
+                    <a href="#" class="footer-link" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="<i class='bi bi-whatsapp' style='color: green;'></i> +265887235642">
+                        <i class="bi bi-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="content">
+            <a href="#" class="footer-link" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="<i class='bi bi-geo-alt'></i> Area 49, New Shire">
+                <i class="bi bi-geo-alt"></i>
             </a>
-
-          </div>
         </div>
-        <div class="col-md-4 text-center">
-          <div class="info_links">
-            <h5>
-              Useful Links
-            </h5>
-            <ul>
-              <li>
-                <a href="about.html">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="service.html">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="portfolio.html">
-                  Portfolio
-                </a>
-              </li>
-              <li>
-                <a href="contact.html">
-                  Contact Us
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-4 text-center">
-          <div class="info_info">
-            <h5>
-              Contact Us
-            </h5>
-          </div>
-          <div class="info_contact">
-            <a href="" class="">
-              <i class="fa fa-map-marker" aria-hidden="true"></i>
-              <span>
-                Area 49, New Shire
-              </span>
-            </a>
-            <a href="" class="">
-              <i class="fa fa-phone" aria-hidden="true"></i>
-              <span>
-                Call : +01 1234567890
-              </span>
-            </a>
-            <a href="" class="">
-              <i class="fa fa-envelope" aria-hidden="true"></i>
-              <span>
-                marketweb@gmail.com
-              </span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- end info_section -->
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
-  <!-- footer section -->
-  <footer class="container-fluid footer_section">
-    <div class="social_box">
-      <a href="">
-        <i class="fa fa-facebook" aria-hidden="true"></i>
-      </a>
-      <a href="">
-        <i class="fa fa-twitter" aria-hidden="true"></i>
-      </a>
-      <a href="">
-        <i class="fa fa-youtube" aria-hidden="true"></i>
-      </a>
-      <a href="">
-        <i class="fa fa-instagram" aria-hidden="true"></i>
-      </a>
-    </div>
-  </footer>
-  <!-- footer section -->
 
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.js"></script>
-  <script src="js/custom.js"></script>
+    <script>
+
+        // Hamburger Menu Toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+
+        // Close menu on mobile when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    document.querySelector('nav ul').classList.remove('active');
+                }
+                // Rest of your existing click handler...
+            });
+        });
+
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click',
+                (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+
+                    // Update active navigation
+                    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+                    link.classList.add('active');
+
+                    // Hide all sections
+                    document.querySelectorAll('section').forEach(section => {
+                        section.classList.remove('active');
+                    });
+
+                    // Show target section
+                    targetSection.classList.add('active');
+
+                    // Update URL hash
+                    history.replaceState(null, null, targetId);
+                });
+        });
+
+        // Initialize popovers
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl,
+                {
+                    html: true,
+                    trigger: 'focus',
+                    // Close popover when clicking outside
+                    content: function () {
+                        return popoverTriggerEl.getAttribute('data-bs-content');
+                    }
+                });
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const carouselTrack = document.querySelector('#about .carousel-track');
+            const cards = document.querySelectorAll('#about .card');
+            let currentIndex = 0;
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % cards.length;
+                carouselTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+
+            // Start automatic carousel
+            if (cards.length > 0) {
+                setInterval(nextSlide, 4000);
+            }
+        });
+        // Handle initial page load with hash
+        window.addEventListener('load', () => {
+            const hash = window.location.hash;
+            if (hash) {
+                const targetLink = document.querySelector(`nav a[href="${hash}"]`);
+                if (targetLink) targetLink.click();
+            }
+        });
+    </script>
 </body>
-
-</html>
+                  </html>
