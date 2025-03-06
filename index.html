@@ -226,6 +226,7 @@
         }
 
 
+
         .logo {
             height: 40px;
             padding: 5px 0;
@@ -263,19 +264,18 @@
             background: rgba(255, 255, 255, 0.15);
         }
 
-        section {
-            position: fixed;
-            top: 80px;
-            left: 0;
-            width: 100%;
-            height: calc(100vh - 80px);
-            padding: 2rem;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.5s ease-in-out;
-            overflow-y: auto;
-        }
-
+section {
+    position: fixed;
+    top: 60px; /* Changed from 80px */
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    padding: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease-in-out;
+    overflow-y: auto;
+}
         section.active {
             opacity: 1;
             visibility: visible;
@@ -321,9 +321,17 @@
             transform: translateY(-2px);
         }
 
-        #home {
-            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
-        }
+
+    /* ... existing styles ... */
+
+#home, #contact {
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('bgbgbg.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    /* ... rest of existing styles ... */
 
         #services {
             background-color: #1f2326;
@@ -337,9 +345,7 @@
             background-color: #1f2326;
         }
 
-        #contact {
-            background-color: #1f2326;
-        }
+
     </style>
 </head>
 <body>
@@ -357,42 +363,40 @@
         </ul>
     </nav>
     <!-- Modified Home Section -->
-    <section id="home" class="active">
-        <div class="content">
-            <h1>Creating the future of brands</h1>
-            <p>
-                Elevate your brand's online presence and success with <b>MarketWeb</b>.Here's How we do it.
-            </p>
+<!-- Modified Home Section -->
+<!-- Modified Home Section -->
+<section id="home" class="active">
+    <div class="content">
+     <h1>Creating the future of <span style="color: #b8870b;">brands</span></h1>
+        <p>
+            Elevate your brand's online presence and success.
+        </p>
 
-            <!-- Updated Icon Section Columns -->
-            <div class="row g-3 mt-4 mb-4">
-                      
-                <div class="col-4 text-center">
-                    <!-- Changed from col-md-4 -->
-
-                    <i class="bi bi-ear" style="font-size: 2rem; color: #b8870b;"></i>
-                    <p class="mt-2 text-small">Listen</p>
-
-                </div>
-                <div class="col-4 text-center">
-                    <!-- Changed from col-md-4 -->
-
-                    <i class="bi bi-lightbulb" style="font-size: 2rem; color: #b8870b;"></i>
-                    <p class="mt-2 text-small">Understand</p>
-
-                </div>
-                <div class="col-4 text-center">
-                    <!-- Changed from col-md-4 -->
-
-                    <i class="bi bi-hand-thumbs-up" style="font-size: 2rem; color: #b8870b;"></i>
-                    <p class="mt-2 text-small">Support</p>
-
-                </div>
+        <!-- Updated Icon Section Columns -->
+        <div class="row g-3 mt-4 mb-4">
+            <div class="col-4 text-center">
+                <a href="#services" class="text-decoration-none" onclick="switchSection('#services')">
+                    <i class="bi bi-gear" style="font-size: 2rem; color: #b8870b;"></i>
+                    <p class="mt-2 text-small">Services</p>
+                </a>
             </div>
-
-            <a href="#contact" class="btn">Get in Touch</a>
+            <div class="col-4 text-center">
+                <a href="#portfolio" class="text-decoration-none" onclick="switchSection('#portfolio')">
+                    <i class="bi bi-briefcase" style="font-size: 2rem; color: #b8870b;"></i>
+                    <p class="mt-2 text-small">Portfolio</p>
+                </a>
+            </div>
+            <div class="col-4 text-center">
+                <a href="#about" class="text-decoration-none" onclick="switchSection('#about')">
+                    <i class="bi bi-info-circle" style="font-size: 2rem; color: #b8870b;"></i>
+                    <p class="mt-2 text-small">About</p>
+                </a>
+            </div>
         </div>
-    </section>
+
+        <a href="#contact" class="btn" onclick="switchSection('#contact')">Get in Touch</a>
+    </div>
+</section>
     <section id="services" class="">
         <div class="content">
             <h1>Our Services</h1>
@@ -464,7 +468,7 @@
         <div class="content">
             <h1>Portfolio</h1>
             <p>
-                Proof in pixels: innovative campaigns where brands thrive. Browse, then believe
+                Innovative campaigns where brands thrive. Browse, then believe
             </p>
 
             <div class="row g-3">
@@ -537,14 +541,14 @@
             <div class="carousel-container">
                 <div class="carousel-track">
                     <div class="card">
-                        <img src="Nosipho.jpeg">
+                        <img src="nosipho.jpeg">
                         <h2>Managing Director</h2>
                         <p>
                             Nosipho Kamwendo
                         </p>
                     </div>
                     <div class="card">
-                        <img src="Gome.jpeg">
+                        <img src="gome.jpeg">
                         <h2>Software Developer</h2>
                         <p>
                             Gomezgani Kaunda
@@ -558,14 +562,14 @@
                         </p>
                     </div>
                     <div class="card">
-                        <img src="Beiah.jpeg">
+                        <img src="beiah.jpeg">
                         <h2>Content Creator</h2>
                         <p>
                             Beiah George
                         </p>
                     </div>
                     <div class="card">
-                        <img src="Dan.jpeg">
+                        <img src="dan.jpeg">
                         <h2>Software Developer</h2>
                         <p>
                             Daniel Ntandika
@@ -580,7 +584,7 @@
         <div class="content">
             <h1>Contact Us</h1>
             <p>
-                Ready to spark magic? Let's chat—your next big breakthrough starts here
+Let's chat—your next big breakthrough starts here
             </p>
             <div class="card">
                 <form style="display: grid; gap: 1rem;">
@@ -619,85 +623,81 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
 
-    <script>
+<script>
+    // Function to switch sections
+    function switchSection(targetId) {
+        const targetSection = document.querySelector(targetId);
 
-        // Hamburger Menu Toggle
-        document.querySelector('.hamburger').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('active');
+        // Update active navigation
+        document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+        document.querySelector(`nav a[href="${targetId}"]`).classList.add('active');
+
+        // Hide all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.remove('active');
         });
 
-        // Close menu on mobile when clicking a link
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768) {
-                    document.querySelector('nav ul').classList.remove('active');
-                }
-                // Rest of your existing click handler...
-            });
-        });
+        // Show target section
+        targetSection.classList.add('active');
 
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click',
-                (e) => {
-                    e.preventDefault();
-                    const targetId = link.getAttribute('href');
-                    const targetSection = document.querySelector(targetId);
+        // Update URL hash
+        history.replaceState(null, null, targetId);
+    }
 
-                    // Update active navigation
-                    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-                    link.classList.add('active');
+    // Hamburger Menu Toggle
+    document.querySelector('.hamburger').addEventListener('click', function() {
+        document.querySelector('nav ul').classList.toggle('active');
+    });
 
-                    // Hide all sections
-                    document.querySelectorAll('section').forEach(section => {
-                        section.classList.remove('active');
-                    });
-
-                    // Show target section
-                    targetSection.classList.add('active');
-
-                    // Update URL hash
-                    history.replaceState(null, null, targetId);
-                });
-        });
-
-        // Initialize popovers
-        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-            return new bootstrap.Popover(popoverTriggerEl,
-                {
-                    html: true,
-                    trigger: 'focus',
-                    // Close popover when clicking outside
-                    content: function () {
-                        return popoverTriggerEl.getAttribute('data-bs-content');
-                    }
-                });
-        });
-
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const carouselTrack = document.querySelector('#about .carousel-track');
-            const cards = document.querySelectorAll('#about .card');
-            let currentIndex = 0;
-
-            function nextSlide() {
-                currentIndex = (currentIndex + 1) % cards.length;
-                carouselTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+    // Close menu on mobile when clicking a link
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                document.querySelector('nav ul').classList.remove('active');
             }
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            switchSection(targetId);
+        });
+    });
 
-            // Start automatic carousel
-            if (cards.length > 0) {
-                setInterval(nextSlide, 4000);
+    // Initialize popovers
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl, {
+            html: true,
+            trigger: 'focus',
+            content: function () {
+                return popoverTriggerEl.getAttribute('data-bs-content');
             }
         });
-        // Handle initial page load with hash
-        window.addEventListener('load', () => {
-            const hash = window.location.hash;
-            if (hash) {
-                const targetLink = document.querySelector(`nav a[href="${hash}"]`);
-                if (targetLink) targetLink.click();
-            }
-        });
-    </script>
+    });
+
+    // Carousel functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const carouselTrack = document.querySelector('#about .carousel-track');
+        const cards = document.querySelectorAll('#about .card');
+        let currentIndex = 0;
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % cards.length;
+            carouselTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        if (cards.length > 0) {
+            setInterval(nextSlide, 4000);
+        }
+    });
+
+    // Handle initial page load with hash
+    window.addEventListener('load', () => {
+        const hash = window.location.hash;
+        if (hash) {
+            const targetLink = document.querySelector(`nav a[href="${hash}"]`);
+            if (targetLink) targetLink.click();
+        }
+    });
+</script>
 </body>
-                  </html>
+</html>
+
