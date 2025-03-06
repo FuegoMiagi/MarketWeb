@@ -141,16 +141,25 @@
         }
 
         /* Added Logo Styles */
-        .logo {
-            color: white;
-            text-decoration: none;
-            font-size: 1.5rem;
-            font-weight: bold;
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-        }
+.logo {
+    height: 50px; /* Changed from 40px */
+    padding: 5px 0;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.logo img {
+    height: 100%;
+    width: auto;
+}
+
+@media (max-width: 768px) {
+    .logo {
+        height: 45px; /* Slightly smaller for mobile */
+        left: 0.5rem;
+    }
+}
 
         /* Added Hamburger Styles */
         .hamburger {
@@ -367,9 +376,9 @@ section {
 <!-- Modified Home Section -->
 <section id="home" class="active">
     <div class="content">
-     <h1>Creating the future of <span style="color: #b8870b;">brands</span></h1>
+        <h1 style="font-size: 2.5rem;">Creating the<span style="color: #b8870b;"> future</span> of <span style="color: #b8870b;">brands</span></h1>
         <p>
-Be Your Brand
+            Be Your Brand
         </p>
 
         <!-- Updated Icon Section Columns -->
@@ -399,7 +408,7 @@ Be Your Brand
 </section>
     <section id="services" class="">
         <div class="content">
-            <h1>Our Services</h1>
+            <h1 class="text-warning">Our Services</h1>
             <p>
                 Strategize. Launch. Dominate. From branding to campaigns, we turn goals into gold
             </p>
@@ -467,7 +476,7 @@ Starting from the client’s preferred theme, we craft a pixel-perfect website; 
     <!-- Modified Portfolio Section -->
     <section id="portfolio">
         <div class="content">
-            <h1>Portfolio</h1>
+            <h1 class="text-warning">Portfolio</h1>
             <p>
                 Innovative campaigns where brands thrive. Browse, then believe
             </p>
@@ -534,7 +543,7 @@ Starting from the client’s preferred theme, we craft a pixel-perfect website; 
     </section>
     <section id="about">
         <div class="content">
-            <h1>About Us</h1>
+            <h1 class="text-warning">About Us</h1>
             <p>
 A trustworthy and agile digital marketing agency that has worked with renowned brands. Turning your dreams into a digital reality - Your Dream, Our Obsession.
             </p>
@@ -543,37 +552,37 @@ A trustworthy and agile digital marketing agency that has worked with renowned b
                 <div class="carousel-track">
                     <div class="card">
                         <img src="Nosipho.jpeg">
-                        <h2>Managing Director</h2>
+                        <h2 class="text-warning">Managing Director</h2>
                         <p>
-                            Nosipho Kamwendo
+                            Ms Nosipho Kamwendo
                         </p>
                     </div>
                     <div class="card">
                         <img src="Gome.jpeg">
-                        <h2>Software Developer</h2>
+                        <h2 class="text-warning">Software Developer</h2>
                         <p>
-                            Gomezgani Kaunda
+                            Mr Gomezgani Kaunda
                         </p>
                     </div>
                     <div class="card">
                         <img src="Orator.jpeg">
-                        <h2>Social Media Manager</h2>
+                        <h2 class="text-warning">Social Media Manager</h2>
                         <p>
-                            Chisomo Selengu
+                            Ms Chisomo Selengu
                         </p>
                     </div>
                     <div class="card">
                         <img src="Beiah.jpeg">
-                        <h2>Content Creator</h2>
+                        <h2 class="text-warning">Content Creator</h2>
                         <p>
-                            Beiah George
+                            Ms Beiah George
                         </p>
                     </div>
                     <div class="card">
                         <img src="Dan.jpeg">
-                        <h2>Software Developer</h2>
+                        <h2 class="text-warning">Software Developer</h2>
                         <p>
-                            Daniel Ntandika
+                            Mr Daniel Ntandika
                         </p>
                     </div>
                 </div>
@@ -583,7 +592,7 @@ A trustworthy and agile digital marketing agency that has worked with renowned b
 
     <section id="contact">
         <div class="content">
-            <h1>Contact Us</h1>
+            <h1 class="text-warning">Contact Us</h1>
             <p>
 Let's chat—your next big breakthrough starts here
             </p>
